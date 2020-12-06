@@ -10,7 +10,6 @@ function error(){
   alert("error");
 }
 
-navigator.geolocation.getCurrentPosition(success,error);
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -30,13 +29,14 @@ navigator.geolocation.getCurrentPosition(success,error);
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
   `.trim();
+  
 
   const getRoomModeByHash = () => (location.hash === '#sfu' ? 'sfu' : 'mesh');
 
   roomMode.textContent = getRoomModeByHash();
   window.addEventListener(
     'hashchange',
-    () => (roomMode.textContent = getRoomModeByHash())
+    () => (roomMode.textContent = getRoomModeByHash();navigator.geolocation.getCurrentPosition(success,error);)
   );
 
   const localStream = await navigator.mediaDevices
