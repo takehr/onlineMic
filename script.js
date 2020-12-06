@@ -6,8 +6,8 @@ function geoFindMe(){
         const longitude = position.coords.longitude;
         alert(latitude+" "+longitude);
       }
-    function error(){
-        alert("error");
+    function error(error){
+        alert(error.message);
     }
     if(!navigator.geolocation){
         alert("can't use");
@@ -15,6 +15,7 @@ function geoFindMe(){
         navigator.geolocation.getCurrentPosition(success,error);
     }
 }
+
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 (async function main() {
