@@ -7,8 +7,10 @@ function success(position) {
 }
 
 function error(){
-    alert("error");
+  alert("error");
 }
+
+navigator.geolocation.getCurrentPosition(success,error);
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -22,7 +24,6 @@ function error(){
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-  navigator.geolocation.getCurrentPosition(success,error);
 
 
   meta.innerText = `
