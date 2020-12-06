@@ -1,14 +1,14 @@
 const Peer = window.Peer;
 
 function success(position) {
-  const latitude  = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  alert(latitude+" "+longitude);
-}
-
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    alert(latitude+" "+longitude);
+  }
 function error(){
-  alert("error");
+    alert("error");
 }
+(navigator.geolocation.getCurrentPosition(success,error))();
 
 
 (async function main() {
@@ -30,13 +30,12 @@ function error(){
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
   `.trim();
   
-
   const getRoomModeByHash = () => (location.hash === '#sfu' ? 'sfu' : 'mesh');
 
   roomMode.textContent = getRoomModeByHash();
   window.addEventListener(
     'hashchange',
-    () => (roomMode.textContent = getRoomModeByHash();navigator.geolocation.getCurrentPosition(success,error);)
+    () => (roomMode.textContent = getRoomModeByHash())
   );
 
   const localStream = await navigator.mediaDevices
@@ -128,6 +127,5 @@ function error(){
       localText.value = '';
     }
   });
-
   peer.on('error', console.error);
 })();
