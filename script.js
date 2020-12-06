@@ -1,15 +1,21 @@
 const Peer = window.Peer;
 
-function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    alert(latitude+" "+longitude);
-  }
-function error(){
-    alert("error");
+function geoFindMe(){
+    function success(position) {
+        const latitude  = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        alert(latitude+" "+longitude);
+      }
+    function error(){
+        alert("error");
+    }
+    if(!navigator.geolocation){
+        alert("can't use");
+    }else{
+        navigator.geolocation.getCurrentPosition(success,error);
+    }
 }
-(navigator.geolocation.getCurrentPosition(success,error))();
-
+document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
