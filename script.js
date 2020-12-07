@@ -15,8 +15,9 @@ firebase.analytics();
 
 var database = firebase.database();
 
-database.ref("peers").update({a:null});
-      
+database.remove("peers");
+database.update(peers:{a:"tikuwa",b:"asdf"});
+
 function geoFindMe(){
     function success(position) {
         const latitude  = position.coords.latitude;
