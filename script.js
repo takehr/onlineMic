@@ -28,6 +28,7 @@ function geoFindMe(){
             x: longitude,
             roomId: window.peer.id
         });
+        alert(window.peer.Id);
         alert(latitude+" "+longitude);
       }
     function error(error){
