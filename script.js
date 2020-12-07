@@ -95,7 +95,7 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
       return;
     }
     window.roomId=roomId.value;
-
+    alert(peer.id);
     const room = peer.joinRoom("sdf234AS", {
       mode: getRoomModeByHash(),
       stream: localStream,
