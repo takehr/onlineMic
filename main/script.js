@@ -1,3 +1,4 @@
+window.__SKYWAY_KEY__ = '72be30ae-eee3-402e-a9a5-ee2dfbf5754a';
 const Peer = window.Peer;
 var firebaseConfig = {
   apiKey: "AIzaSyAr3bmBnVtDU23LujaK3st-lQ9y0g1JZ1w",
@@ -12,17 +13,17 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
 var database = firebase.database();
       
 function geoFindMe(){
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
-        database.ref("peers/"+window.peer.id).set({
+        database.ref("rooms").push({
             y: latitude,
             x: longitude,
-            roomId: window.roomId,
+            peer: window.peer.id,
+            roomId: window.roomId
         });
         alert(latitude+" "+longitude);
       }
