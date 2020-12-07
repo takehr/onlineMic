@@ -60,9 +60,11 @@ function geoFindMe(){
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
-  alert(window.peer.id);
+  peer.on('open',() =>{
+    alert(window.peer.id);
+  });
   const room = peer.joinRoom(peer.id, {
-    mode: getRoomModeByHash(),
+    mode: 'sfu',
     stream: localStream,
   });
   peer.on('error', console.error);
