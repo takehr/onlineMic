@@ -61,11 +61,11 @@ function geoFindMe(){
     debug: 3,
   }));
   peer.on('open',() =>{
-    alert(window.peer.id);
-  });
-  const room = peer.joinRoom(peer.id, {
-    mode: 'sfu',
-    stream: localStream,
+    const room = peer.joinRoom(peer.id, {
+      mode: 'sfu',
+      stream: localStream,
+    });
+    geoFindMe();
   });
   peer.on('error', console.error);
 })();
