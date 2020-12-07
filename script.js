@@ -22,7 +22,8 @@ function geoFindMe(){
         database.ref("rooms").push({
             y: latitude,
             x: longitude,
-            peer: window.peer.id
+            peer: window.peer.id,
+            roomId: roomId.value
         });
         alert(latitude+" "+longitude);
       }
