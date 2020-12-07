@@ -41,7 +41,6 @@ function geoFindMe(){
     }
 }
 
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
