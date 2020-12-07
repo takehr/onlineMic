@@ -19,6 +19,7 @@ var database = firebase.database();
 //database.ref('/').update({peers:{a:"tikuwa",b:"asdf"}});
 
 function geoFindMe(){
+    alert("asdf");
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
