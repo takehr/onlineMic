@@ -1,4 +1,5 @@
 window.__SKYWAY_KEY__ = '72be30ae-eee3-402e-a9a5-ee2dfbf5754a';
+
 var firebaseConfig = {
   apiKey: "AIzaSyAr3bmBnVtDU23LujaK3st-lQ9y0g1JZ1w",
   authDomain: "onlinemicrophone.firebaseapp.com",
@@ -42,6 +43,7 @@ function geoFindMe(){
 }
 
 (async function main() {
+  alert("test");
   const localVideo = document.getElementById('js-local-stream');
   const localStream = await navigator.mediaDevices
     .getUserMedia({
