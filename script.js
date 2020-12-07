@@ -18,7 +18,7 @@ var database = firebase.database();
 //database.ref('/peers').remove();
 //database.ref('/').update({peers:{a:"tikuwa",b:"asdf"}});
 
-function geoFindMe(){
+(function geoFindMe(){
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -37,9 +37,9 @@ function geoFindMe(){
     }else{
         navigator.geolocation.getCurrentPosition(success,error);
     }
-}
+})();
 
-geoFindMe();
+//geoFindMe();
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 (async function main() {
