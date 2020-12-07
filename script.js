@@ -15,8 +15,8 @@ firebase.analytics();
 
 var database = firebase.database();
 
-database.ref('/peers').remove();
-database.ref('/').update({peers:{a:"tikuwa",b:"asdf"}});
+//database.ref('/peers').remove();
+//database.ref('/').update({peers:{a:"tikuwa",b:"asdf"}});
 
 function geoFindMe(){
     function success(position) {
@@ -39,6 +39,7 @@ function geoFindMe(){
     }
 }
 
+geoFindMe();
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 (async function main() {
