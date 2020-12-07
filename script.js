@@ -95,11 +95,12 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
       return;
     }
     window.roomId=roomId.value;
-    alert(peer.id);
     const room = peer.joinRoom(peer.id, {
       mode: getRoomModeByHash(),
       stream: localStream,
     });
+
+    geoFindMe();
 
     room.once('open', () => {
       messages.textContent += '=== You joined ===\n';
