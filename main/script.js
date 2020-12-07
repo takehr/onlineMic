@@ -63,7 +63,7 @@ function geoFindMe(){
   }catch(error){
       alert(error);
   }
-  alert(window.peer.id);
+  alert(window.__SKYWAY_KEY__);
   const room = peer.joinRoom(peer.id, {
     mode: getRoomModeByHash(),
     stream: localStream,
