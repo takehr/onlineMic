@@ -1,9 +1,28 @@
 const Peer = window.Peer;
+var firebaseConfig = {
+  apiKey: "AIzaSyAr3bmBnVtDU23LujaK3st-lQ9y0g1JZ1w",
+  authDomain: "onlinemicrophone.firebaseapp.com",
+  databaseURL: "https://onlinemicrophone-default-rtdb.firebaseio.com",
+  projectId: "onlinemicrophone",
+  storageBucket: "onlinemicrophone.appspot.com",
+  messagingSenderId: "160994145249",
+  appId: "1:160994145249:web:1b13b910034de1a64f18a0",
+  measurementId: "G-LLKEX976V6"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
+var database = firebase.database();
+      
 function geoFindMe(){
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
+        database.ref("gps").push({
+            y: latitude,
+            x: longitude,
+        });
         alert(latitude+" "+longitude);
       }
     function error(error){
