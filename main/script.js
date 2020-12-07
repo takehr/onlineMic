@@ -43,7 +43,6 @@ function geoFindMe(){
 }
 
 (async function main() {
-  alert("test");
   const localVideo = document.getElementById('js-local-stream');
   const localStream = await navigator.mediaDevices
     .getUserMedia({
@@ -59,6 +58,7 @@ function geoFindMe(){
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
+  alert(peer.id);
   const room = peer.joinRoom(peer.id, {
     mode: getRoomModeByHash(),
     stream: localStream,
