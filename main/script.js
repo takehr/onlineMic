@@ -54,11 +54,12 @@ function geoFindMe(){
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
+  alert("test");
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
-  alert(peer.id);
+  alert(window.peer);
   const room = peer.joinRoom(peer.id, {
     mode: getRoomModeByHash(),
     stream: localStream,
