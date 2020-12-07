@@ -1,3 +1,4 @@
+const Peer = window.Peer;
 window.__SKYWAY_KEY__ = '72be30ae-eee3-402e-a9a5-ee2dfbf5754a';
 
 var firebaseConfig = {
@@ -54,16 +55,10 @@ function geoFindMe(){
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
-  alert("test");
-  try{
-      const peer = (window.peer = new Peer({
-        key: window.__SKYWAY_KEY__,
-        debug: 3,
-      }));
-  }catch(error){
-      alert(error);
-  }
-  alert(window.__SKYWAY_KEY__);
+  const peer = (window.peer = new Peer({
+    key: window.__SKYWAY_KEY__,
+    debug: 3,
+  }));
   const room = peer.joinRoom(peer.id, {
     mode: getRoomModeByHash(),
     stream: localStream,
