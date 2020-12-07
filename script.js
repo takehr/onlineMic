@@ -23,7 +23,7 @@ function geoFindMe(){
             y: latitude,
             x: longitude,
             peer: window.peer.id,
-            roomId: roomId.value
+            roomId: window.roomId
         });
         alert(latitude+" "+longitude);
       }
@@ -44,7 +44,7 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
   const remoteVideos = document.getElementById('js-remote-streams');
-  var roomId = document.getElementById('js-room-id');
+  const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
   const localText = document.getElementById('js-local-text');
   const sendTrigger = document.getElementById('js-send-trigger');
@@ -92,6 +92,7 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
     if (!peer.open) {
       return;
     }
+    window.roomId=roomId.value;
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
