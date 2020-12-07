@@ -19,9 +19,10 @@ function geoFindMe(){
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
-        database.ref("gps").push({
+        database.ref("rooms").push({
             y: latitude,
             x: longitude,
+            peer: window.peer.id
         });
         alert(latitude+" "+longitude);
       }
