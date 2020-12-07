@@ -96,7 +96,7 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
     }
     window.roomId=roomId.value;
 
-    const room = peer.joinRoom(peer.id, {
+    const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
       stream: localStream,
     });
