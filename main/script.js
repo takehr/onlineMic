@@ -51,7 +51,7 @@ function geoFindMe(){
       video: false,
     })
     .catch(console.error);
-  geoFindMe();
+  //geoFindMe();
   localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
@@ -60,6 +60,7 @@ function geoFindMe(){
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
+  alert(window.peer.id);
   const room = peer.joinRoom(peer.id, {
     mode: getRoomModeByHash(),
     stream: localStream,
