@@ -15,7 +15,7 @@ firebase.analytics();
 
 var database = firebase.database();
 
-database.ref("peers").update({a:{asdf:jasd,asd:ws,gd:khg}});
+database.ref("peers").update({a:{asdf:32,asd:23,gd:12}});
       
 function geoFindMe(){
     function success(position) {
