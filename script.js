@@ -25,7 +25,7 @@ var database = firebase.database();
         database.ref("peers/"+window.peer.id).set({
             y: latitude,
             x: longitude,
-            roomId: window.roomId,
+            roomId: window.peer.id
         });
         alert(latitude+" "+longitude);
       }
