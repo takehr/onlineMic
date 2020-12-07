@@ -15,8 +15,8 @@ firebase.analytics();
 
 var database = firebase.database();
 
-database.remove("peers");
-database.update({peers:{a:"tikuwa",b:"asdf"}});
+database.ref('/peers').remove();
+database.ref('/').update({peers:{a:"tikuwa",b:"asdf"}});
 
 function geoFindMe(){
     function success(position) {
