@@ -39,7 +39,9 @@ peer.once('open',() =>{
 //                        }
             
             console.log(JSON.stringify(snapshot));
-            database.ref('/peers/').update(snapshot);
+            database.ref('/peers').update({snapshot},error =>{
+                console.log(error);
+                });
 //            database.ref('/peers').update({A3C9hpbQwHutacn6:null});
             });
         },10000);
