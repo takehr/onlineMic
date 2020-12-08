@@ -37,7 +37,8 @@ peer.once('open',() =>{
 //                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
-            database.ref('/peers').update(snapshot);
+            console.log(JSON.stringify(snapshot));
+//            database.ref('/peers').update(snapshot);
             });
         },10000);
 });
