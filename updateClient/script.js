@@ -32,7 +32,7 @@ peer.once('open',() =>{
                 snapshot[key]=null;
 //                console.log(key);
             });
-            console.log(Array.isArray(activePeers));
+            console.log(activePeers);
 //            activePeers.forEach(activePeer => {
 //                snapshot[activePeer]=_snapshot[activePeer];
 //            });
