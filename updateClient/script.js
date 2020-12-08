@@ -26,7 +26,7 @@ peer.once('open',() =>{
                 activePeers = peers;
             });
         database.ref('/peers').once('value').then((snapshot) => {
-            snapshot.foreach(el => console.log(el));
+            snapshot.forEach(el => console.log(el));
 //            for key in snapshot.key():
 //                for activePeer in activePeers:
 //                    if(key!==activePeer){
