@@ -26,7 +26,7 @@ peer.once('open',() =>{
                 activePeers = peers;
             });
         database.ref('/peers').once('value').then((snapshot) => {
-            alert(snapshot);
+            alert(snapshot.val());
             });
         },10000);
 });
