@@ -36,17 +36,17 @@ peer.once('open',() =>{
 //                console.log(key);
             });
             console.log(activePeers);
-//            activePeers.forEach(activePeer => {
-//                snapshot[activePeer]=_snapshot[activePeer];
-//            });
+            activePeers.forEach(activePeer => {
+                snapshot[activePeer]=_snapshot[activePeer];
+                });
 //                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
             
 //            console.log(JSON.parse(JSON.stringify(snapshot)));
-//            database.ref('/peers').update(JSON.parse(JSON.stringfy(snapshot)),error =>{
-//                console.log(error);
-//                });
+            database.ref('/peers').update(JSON.parse(JSON.stringfy(snapshot)),error =>{
+                console.log(error);
+                });
 //            database.ref('/peers').update({A3C9hpbQwHutacn6:null});
             });
         },10000);
