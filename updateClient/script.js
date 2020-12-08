@@ -32,17 +32,18 @@ peer.once('open',() =>{
                 snapshot[key]=null;
 //                console.log(key);
             });
-            activePeers.forEach(activePeer => {
-                snapshot[activePeer]=_snapshot[activePeer];
-            });
+            console.log(Array.isArray(activePeers));
+//            activePeers.forEach(activePeer => {
+//                snapshot[activePeer]=_snapshot[activePeer];
+//            });
 //                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
             
 //            console.log(JSON.parse(JSON.stringify(snapshot)));
-            database.ref('/peers').update(JSON.parse(JSON.stringfy(snapshot)),error =>{
-                console.log(error);
-                });
+//            database.ref('/peers').update(JSON.parse(JSON.stringfy(snapshot)),error =>{
+//                console.log(error);
+//                });
 //            database.ref('/peers').update({A3C9hpbQwHutacn6:null});
             });
         },10000);
