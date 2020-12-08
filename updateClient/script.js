@@ -39,7 +39,7 @@ peer.once('open',() =>{
             activePeers.forEach(activePeer => {
                 snapshot[activePeer]=_snapshot[activePeer];
                 });
-            console.log(JSON.stringify(snapshot));
+            console.log(JSON.stringify(_snapshot));
 //                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
