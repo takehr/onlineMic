@@ -31,6 +31,7 @@ peer.once('open',() =>{
         database.ref('/peers').once('value').then((snapshot) => {
             snapshot=snapshot.val();
             const _snapshot = Object.create(snapshot);
+            console.log(JSON.stringify(_snapshot));
             Object.keys(snapshot).forEach(key => {
                 snapshot[key]=null;
 //                console.log(key);
@@ -39,7 +40,6 @@ peer.once('open',() =>{
             activePeers.forEach(activePeer => {
                 snapshot[activePeer]=_snapshot[activePeer];
                 });
-            console.log(JSON.stringify(_snapshot));
 //                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
