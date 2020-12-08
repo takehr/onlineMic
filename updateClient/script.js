@@ -26,14 +26,18 @@ peer.once('open',() =>{
                 activePeers = peers;
             });
         database.ref('/peers').once('value').then((snapshot) => {
-//            snapshot=snapshot.val();
-            Object.keys(snapshot).forEach(key => console.log('key:' + key + ' value:' + JSON.stringify(snapshot[key])));
-//            for key in snapshot.key():
-//                for activePeer in activePeers:
-//                    if(key!==activePeer){
+            snapshot=snapshot.val();
+            _snapshot = Object.create(snapshot);
+            Object.keys(snapshot).forEach(key => {
+                snapshot[key]=null;
+            });
+            activePeers.forEach(activePeer => {
+                snapshot[activePeer]=_snapshot[activePeer];
+            });
+//                    if(key!=activePeer){
 //                        snapshot[key]=null;
 //                        }
-//            database.ref('/peers').update(snapshot);
+            database.ref('/peers').update(snapshot);
             });
         },10000);
 });
