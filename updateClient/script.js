@@ -21,6 +21,9 @@ var activePeers;
 peer.once('open',() =>{
     //listActivePeer -> listDatabase -> inactivepeer=null
     alert("opened");
+    peer.listAllPeers((peers) => {
+            activePeers = peers;
+        });
     intervalId = window.setInterval( () => {
         peer.listAllPeers((peers) => {
                 activePeers = peers;
