@@ -30,7 +30,7 @@ peer.once('open',() =>{
             });
         database.ref('/peers').once('value').then((snapshot) => {
             snapshot=snapshot.val();
-            _snapshot = Object.create(snapshot);
+            const _snapshot = Object.create(snapshot);
             Object.keys(snapshot).forEach(key => {
                 snapshot[key]=null;
 //                console.log(key);
