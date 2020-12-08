@@ -38,8 +38,8 @@ peer.once('open',() =>{
 //                        snapshot[key]=null;
 //                        }
             console.log(JSON.stringify(snapshot));
-//            database.ref('/').update({peers:snapshot});
-            database.ref('/peers').update({A3C9hpbQwHutacn6:null});
+            database.ref('/').update(snapshot);
+//            database.ref('/peers').update({A3C9hpbQwHutacn6:null});
             });
         },10000);
 });
