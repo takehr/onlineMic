@@ -17,12 +17,16 @@ const peer = (window.peer = new Peer({
   debug: 3,
 }));
 var intervalId;
+var activePeers;
 peer.once('open',() =>{
     //listActivePeer -> listDatabase -> inactivepeer=null
     alert("opened");
     intervalId = window.setInterval( () => {
         peer.listAllPeers((peers) => {
-                alert(peers);
+                activePeers = peers;
+            });
+        database.ref('/peers').once('value').then((snapshot) => {
+            alert(snapshot);
             });
         },10000);
 });
