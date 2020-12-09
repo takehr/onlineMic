@@ -16,7 +16,6 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var database = firebase.database();
-var room;
 var roomId=null;
 var localStream;
 
@@ -48,7 +47,7 @@ function geoFindMe(){
                         roomId: roomId
                     });
                 }
-                room = peer.joinRoom(roomId, {
+                const room = peer.joinRoom(roomId, {
                   mode: 'sfu',
                   stream: localStream,
                 });

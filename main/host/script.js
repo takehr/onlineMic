@@ -16,7 +16,6 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var database = firebase.database();
-var room;
 var roomId=null;
 
 function geoFindMe(){
@@ -47,10 +46,17 @@ function geoFindMe(){
                         roomId: roomId
                     });
                 }
-                room = peer.joinRoom(roomId, {
+                const room = peer.joinRoom(roomId, {
                   mode: 'sfu',
                   stream: null,
                 });
+                const localVideo = document.getElementById('js-local-stream');
+                room.on('stream', async stream => {
+                  localVideo.srcObject = stream;
+                  localVideo.playsInline = true;
+                  await localVideo.play().catch(console.error);
+                });
+
             });
         alert(window.peer.id);
         alert(latitude+" "+longitude);
@@ -66,7 +72,6 @@ function geoFindMe(){
 }
 
 (async function main() {
-  const localVideo = document.getElementById('js-local-stream');
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
@@ -75,11 +80,6 @@ function geoFindMe(){
   peer.on('open',() =>{
     geoFindMe();
     // Render remote stream for new peer join in the room
-    room.on('stream', async stream => {
-      localVideo.srcObject = stream;
-      localVideo.playsInline = true;
-      await localVideo.play().catch(console.error);
-    });
   });
 
   peer.on('error', console.error);
