@@ -19,7 +19,6 @@ var database = firebase.database();
 var roomId=null;
 
 function geoFindMe(){
-    alert("asdf");
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -56,7 +55,7 @@ function geoFindMe(){
                   localVideo.playsInline = true;
                   await localVideo.play().catch(console.error);
                 });
-
+                alert("setup finish");
             });
         alert(window.peer.id);
         alert(latitude+" "+longitude);
