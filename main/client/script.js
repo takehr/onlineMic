@@ -40,7 +40,7 @@ function geoFindMe(){
                 database.ref("peers/"+window.peer.id).set({
                     y: latitude,
                     x: longitude,
-                    roomId: roomId
+                    roomId: window.peer.id
                 });
             }
             })
