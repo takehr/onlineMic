@@ -30,14 +30,14 @@ function geoFindMe(){
                 const squareDistance = (snapshot.key.x-longitude)**2+(snapshot.key.y-latitude)**2;
                 if(squareDistance<=4)roomId=snapshot.key.roomId;
             });
-            }).then({
+        }).then({
                 if(roomId){
                     database.ref("peers/"+window.peer.id).set({
                         y: latitude,
                         x: longitude,
                         roomId: window.peer.id
                     });
-                }else{
+                } else {
                     database.ref("peers/"+window.peer.id).set({
                         y: latitude,
                         x: longitude,
