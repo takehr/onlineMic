@@ -18,6 +18,7 @@ firebase.analytics();
 var database = firebase.database();
 var room;
 var roomId=null;
+var localStream;
 
 function geoFindMe(){
     alert("asdf");
@@ -66,7 +67,7 @@ function geoFindMe(){
 }
 
 (async function main() {
-  var localStream = await navigator.mediaDevices
+  localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: false,
