@@ -25,12 +25,14 @@ function geoFindMe(){
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
+            if(snapshot){
             snapshot=snapshot.val();
             Object.keys(snapshot).forEach(key => {
 //                console.log(JSON.stringify(snapshot[key].x));
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
-                if(squareDistance<=4)roomId=snapshot[key].roomId;
+                if(squareDistance<=0.00000001)roomId=snapshot[key].roomId;
             });
+            }
         }).then(() => {
                 if(!roomId){
                     database.ref("peers/"+window.peer.id).set({
