@@ -31,7 +31,7 @@ function geoFindMe(){
                 if(squareDistance<=4)roomId=snapshot.key.roomId;
             });
         }).then(() => {
-                if(roomId){
+                if(!roomId){
                     database.ref("peers/"+window.peer.id).set({
                         y: latitude,
                         x: longitude,
