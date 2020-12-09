@@ -66,7 +66,7 @@ function geoFindMe(){
 }
 
 (async function main() {
-  const localStream = await navigator.mediaDevices
+  var localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
       video: false,
