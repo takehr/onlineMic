@@ -51,7 +51,7 @@ function geoFindMe(){
                 });
                 const localVideo = document.getElementById('js-local-stream');
                 room.on('stream', async stream => {
-                  alert("stream open");
+                  console.log("stream open");
                   localVideo.srcObject = stream;
                   localVideo.playsInline = true;
                   await localVideo.play().catch(console.error);
