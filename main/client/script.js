@@ -27,9 +27,9 @@ function geoFindMe(){
         database.ref('/peers').once('value').then((snapshot) => {
             snapshot=snapshot.val();
             Object.keys(snapshot).forEach(key => {
-                console.log(JSON.stringify(snapshot[key].x));
-//                const squareDistance = (snapshot.key[x]-longitude)**2+(snapshot.key[y]-latitude)**2;
-//                if(squareDistance<=4)roomId=snapshot.key.roomId;
+//                console.log(JSON.stringify(snapshot[key].x));
+                const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
+                if(squareDistance<=4)roomId=snapshot[key].roomId;
             });
         }).then(() => {
                 if(!roomId){
