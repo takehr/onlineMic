@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 var database = firebase.database();
-
+var room;
 var roomId=null;
 
 function geoFindMe(){
@@ -28,17 +28,17 @@ function geoFindMe(){
             snapshot=snapshot.val();
             if(snapshot){
             Object.keys(snapshot).forEach(key => {
-//                console.log(JSON.stringify(snapshot[key].x));
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
                 if(squareDistance<=0.00000001)roomId=snapshot[key].roomId;
             });
             }
         }).then(() => {
                 if(!roomId){
+                    roomId=window.peer.id;
                     database.ref("peers/"+window.peer.id).set({
                         y: latitude,
                         x: longitude,
-                        roomId: window.peer.id
+                        roomId: roomId
                     });
                 } else {
                     database.ref("peers/"+window.peer.id).set({
@@ -47,6 +47,10 @@ function geoFindMe(){
                         roomId: roomId
                     });
                 }
+                room = peer.joinRoom(roomId, {
+                  mode: 'sfu',
+                  stream: localStream,
+                });
             });
         alert(window.peer.id);
         alert(latitude+" "+longitude);
@@ -74,10 +78,6 @@ function geoFindMe(){
   }));
 
   peer.on('open',() =>{
-    const room = peer.joinRoom(peer.id, {
-      mode: 'sfu',
-      stream: localStream,
-    });
     geoFindMe();
   });
   peer.on('error', console.error);
