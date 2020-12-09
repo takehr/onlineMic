@@ -25,8 +25,8 @@ function geoFindMe(){
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
-            if(snapshot){
             snapshot=snapshot.val();
+            if(snapshot){
             Object.keys(snapshot).forEach(key => {
 //                console.log(JSON.stringify(snapshot[key].x));
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
