@@ -26,24 +26,25 @@ function geoFindMe(){
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
             snapshot=snapshot.val();
-//            Object.keys(snapshot).forEach(key => {
-//                const squareDistance = (snapshot.key.x-longitude)**2+(snapshot.key.y-latitude)**2;
-//                if(squareDistance<=4)roomId=snapshot.key.roomId;
-//                });
-            if(!roomId){
-                database.ref("peers/"+window.peer.id).set({
-                    y: latitude,
-                    x: longitude,
-                    roomId: window.peer.id
+            Object.keys(snapshot).forEach(key => {
+                const squareDistance = (snapshot.key.x-longitude)**2+(snapshot.key.y-latitude)**2;
+                if(squareDistance<=4)roomId=snapshot.key.roomId;
                 });
-            }else{
-                database.ref("peers/"+window.peer.id).set({
-                    y: latitude,
-                    x: longitude,
-                    roomId: window.peer.id
-                });
-            }
-            })
+            }).then({
+                if(!roomId){
+                    database.ref("peers/"+window.peer.id).set({
+                        y: latitude,
+                        x: longitude,
+                        roomId: window.peer.id
+                    });
+                }else{
+                    database.ref("peers/"+window.peer.id).set({
+                        y: latitude,
+                        x: longitude,
+                        roomId: roomId
+                    });
+                }
+            });
         alert(window.peer.id);
         alert(latitude+" "+longitude);
       }
