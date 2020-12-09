@@ -29,22 +29,21 @@ function geoFindMe(){
             Object.keys(snapshot).forEach(key => {
                 const squareDistance = (snapshot.key.x-longitude)**2+(snapshot.key.y-latitude)**2;
                 if(squareDistance<=4)roomId=snapshot.key.roomId;
-                })
+                });
+            if(!roomId){
+                database.ref("peers/"+window.peer.id).set({
+                    y: latitude,
+                    x: longitude,
+                    roomId: window.peer.id
+                });
+            }else{
+                database.ref("peers/"+window.peer.id).set({
+                    y: latitude,
+                    x: longitude,
+                    roomId: roomId
+                });
+            }
             })
-
-        if(!roomId){
-            database.ref("peers/"+window.peer.id).set({
-                y: latitude,
-                x: longitude,
-                roomId: window.peer.id
-            });
-        }else{
-            database.ref("peers/"+window.peer.id).set({
-                y: latitude,
-                x: longitude,
-                roomId: roomId
-            });
-        }
         alert(window.peer.id);
         alert(latitude+" "+longitude);
       }
