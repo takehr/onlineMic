@@ -51,11 +51,11 @@ function geoFindMe(){
                 });
                 const localVideo = document.getElementById('js-local-stream');
                 room.on('stream', async stream => {
+                  alert("stream open");
                   localVideo.srcObject = stream;
                   localVideo.playsInline = true;
                   await localVideo.play().catch(console.error);
                 });
-                alert("setup finish");
             });
         alert(window.peer.id);
         alert(latitude+" "+longitude);
@@ -78,7 +78,6 @@ function geoFindMe(){
 
   peer.on('open',() =>{
     geoFindMe();
-    // Render remote stream for new peer join in the room
   });
 
   peer.on('error', console.error);
