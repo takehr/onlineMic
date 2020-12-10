@@ -56,7 +56,7 @@ function geoFindMe(){
                   console.log("stream open");
                   localVideo.srcObject = stream;
                   localVideo.playsInline = true;
-                  btnPlay.onclick = () => btnPlay.play();
+                  btnPlay.onclick = () => localVideo.play();
 //                  await localVideo.play().catch(() => {
 //                      alert("error");
 //                      //console.error;
