@@ -54,7 +54,10 @@ function geoFindMe(){
                   console.log("stream open");
                   localVideo.srcObject = stream;
                   localVideo.playsInline = true;
-                  await localVideo.play().catch(console.error);
+                  await localVideo.play().catch(() => {
+                      alert("error");
+                      //console.error;
+                  });
                 });
             });
         alert(window.peer.id);
