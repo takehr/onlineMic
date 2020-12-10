@@ -17,6 +17,8 @@ firebase.analytics();
 
 var database = firebase.database();
 var roomId=null;
+const btnPlay = document.getElementById('btnPlay');
+
 
 function geoFindMe(){
     function success(position) {
@@ -54,10 +56,11 @@ function geoFindMe(){
                   console.log("stream open");
                   localVideo.srcObject = stream;
                   localVideo.playsInline = true;
-                  await localVideo.play().catch(() => {
-                      alert("error");
-                      //console.error;
-                  });
+                  btnPlay.onclick = () => btnPlay.play();
+//                  await localVideo.play().catch(() => {
+//                      alert("error");
+//                      //console.error;
+//                  });
                 });
             });
         alert(window.peer.id);
