@@ -1,6 +1,6 @@
-const Peer = window.Peer;
+// SKYWAY API KEY
 window.__SKYWAY_KEY__ = '72be30ae-eee3-402e-a9a5-ee2dfbf5754a';
-
+//FIREBASE SETUP
 var firebaseConfig = {
   apiKey: "AIzaSyAr3bmBnVtDU23LujaK3st-lQ9y0g1JZ1w",
   authDomain: "onlinemicrophone.firebaseapp.com",
@@ -11,11 +11,11 @@ var firebaseConfig = {
   appId: "1:160994145249:web:1b13b910034de1a64f18a0",
   measurementId: "G-LLKEX976V6"
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
 var database = firebase.database();
+
+
 var roomId=null;
 const btnPlay = document.getElementById('btnPlay');
 
@@ -29,7 +29,8 @@ function geoFindMe(){
             if(snapshot){
             Object.keys(snapshot).forEach(key => {
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
-                if(squareDistance<=0.00000001)roomId=snapshot[key].roomId;
+                //radius of 50m or less
+                if(squareDistance<=0.00000025)roomId=snapshot[key].roomId;
             });
             }
         }).then(() => {
