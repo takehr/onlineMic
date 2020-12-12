@@ -18,6 +18,7 @@ var database = firebase.database();
 
 var roomId=null;
 const btnPlay = document.getElementById('btnPlay');
+const remoteVideos = document.getElementById('js-remote-streams');
 
 
 function geoFindMe(){
@@ -54,14 +55,21 @@ function geoFindMe(){
                 });
                 const localVideo = document.getElementById('js-local-stream');
                 room.on('stream', async stream => {
-                  console.log("stream open");
-                  localVideo.srcObject = stream;
-                  localVideo.playsInline = true;
-                  btnPlay.onclick = () => localVideo.play();
+                  //console.log("stream open");
+                  //localVideo.srcObject = stream;
+                  //localVideo.playsInline = true;
+                  //btnPlay.onclick = () => localVideo.play();
 //                  await localVideo.play().catch(() => {
 //                      alert("error");
 //                      //console.error;
 //                  });
+                  const newVideo = document.createElement('video');
+                  newVideo.srcObject = stream;
+                  newVideo.playsInline = true;
+                  // mark peerId to find it later at peerLeave event
+                  newVideo.setAttribute('data-peer-id', stream.peerId);
+                  remoteVideos.append(newVideo);
+                  await newVideo.play().catch(console.error);
                 });
             });
         alert(window.peer.id);
