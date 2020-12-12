@@ -29,7 +29,7 @@ function geoFindMe(){
             if(snapshot){
             Object.keys(snapshot).forEach(key => {
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
-                if(squareDistance<=100.00000001)roomId=snapshot[key].roomId;
+                if(squareDistance<=0.00000025)roomId=snapshot[key].roomId;
             });
             }
         }).then(() => {
