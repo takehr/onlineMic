@@ -19,9 +19,9 @@ var database = firebase.database();
 var roomId=null;
 var localStream;
 const btnMute = document.getElementById('btn-mute');
-btnMute.onClick( ()=> {
+btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
-});
+};
 
 function geoFindMe(){
     alert("asdf");
