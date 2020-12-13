@@ -70,6 +70,7 @@ function geoFindMe(){
                   newVideo.setAttribute('data-peer-id', stream.peerId);
                   remoteVideos.append(newVideo);
                   await newVideo.play().catch(console.error);
+                  //android-chrome用
                   btnPlay.onclick = () => newVideo.play();
                 });
             });

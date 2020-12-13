@@ -18,6 +18,10 @@ firebase.analytics();
 var database = firebase.database();
 var roomId=null;
 var localStream;
+const btnMute = document.getElementById('btn-mute');
+btnMute.onclick( ()=> {
+    localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
+});
 
 function geoFindMe(){
     alert("asdf");
@@ -30,6 +34,7 @@ function geoFindMe(){
             Object.keys(snapshot).forEach(key => {
                 const squareDistance = (snapshot[key].x-longitude)**2+(snapshot[key].y-latitude)**2;
 //                if(squareDistance<=0.00000025)roomId=snapshot[key].roomId;
+// test したい　誤差
                 if(squareDistance<=100.00000025)roomId=snapshot[key].roomId;
             });
             }
