@@ -88,6 +88,9 @@ function geoFindMe(){
         video: false,
       })
     .catch(console.error)
-    .then(()=>peer.on("open",()=> geoFindMe()));
+    .then(()=>{
+	    alert("jaga");
+	    peer.on("open",()=> geoFindMe());
+    });
   peer.on('error', console.error);
 })();
