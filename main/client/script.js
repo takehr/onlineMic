@@ -31,6 +31,7 @@ $("#exampleModalCenter").modal({
 function geoFindMe(){
     alert("asdf");
     function success(position) {
+        $("#exampleModalCenter").modal("hidden");
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
@@ -77,18 +78,18 @@ function geoFindMe(){
 }
 
 (async function main() {
+  localStream = await navigator.mediaDevices
+    .getUserMedia({
+      audio: true,
+      video: false,
+    })
+  .catch(console.error);
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
 
   peer.on('open',() =>{
-    localStream = await navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-        video: false,
-      })
-    .catch(console.error);
     geoFindMe();
   });
   peer.on('error', console.error);
