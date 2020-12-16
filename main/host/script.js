@@ -14,7 +14,11 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var database = firebase.database();
-
+$("#exampleModalCenter").modal({
+    keyboard:false,
+    backdrop:'static',
+    show:true
+});
 
 var roomId=null;
 const btnPlay = document.getElementById('btnPlay');
@@ -35,6 +39,7 @@ function geoFindMe(){
             });
             }
         }).then(() => {
+                $("#exampleModalCenter").modal("hide");
                 if(!roomId){
                     roomId=window.peer.id;
                     database.ref("peers/"+window.peer.id).set({
@@ -74,14 +79,12 @@ function geoFindMe(){
                   btnPlay.onclick = () => newVideo.play();
                 });
             });
-        alert(window.peer.id);
-        alert(latitude+" "+longitude);
     }
     function error(error){
         alert(error.message);
     }
     if(!navigator.geolocation){
-        alert("can't use");
+        alert("It seems that geolocation is not available in your browser.");
     }else{
         navigator.geolocation.getCurrentPosition(success,error);
     }

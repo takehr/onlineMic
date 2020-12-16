@@ -22,6 +22,11 @@ const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
 };
+$("#exampleModalCenter").modal({
+    keyboard:false,
+    backdrop:'static',
+    show:true
+});
 
 function geoFindMe(){
     alert("asdf");
@@ -72,18 +77,18 @@ function geoFindMe(){
 }
 
 (async function main() {
-  localStream = await navigator.mediaDevices
-    .getUserMedia({
-      audio: true,
-      video: false,
-    })
-    .catch(console.error);
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
 
   peer.on('open',() =>{
+    localStream = await navigator.mediaDevices
+      .getUserMedia({
+        audio: true,
+        video: false,
+      })
+    .catch(console.error);
     geoFindMe();
   });
   peer.on('error', console.error);
