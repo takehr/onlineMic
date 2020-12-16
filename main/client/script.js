@@ -82,14 +82,14 @@ function geoFindMe(){
     debug: 3,
   }));
 
-  peer.on('open',() =>{
     localStream = navigator.mediaDevices
       .getUserMedia({
         audio: true,
         video: false,
       })
     .catch(console.error)
-    .then(()=>geoFindMe());
+    .then(()=>peer.on("open",()=> geoFindMe()));
+    
   });
   peer.on('error', console.error);
 })();
