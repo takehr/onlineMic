@@ -82,8 +82,8 @@ function geoFindMe(){
     .getUserMedia({
       audio: true,
       video: false,
-    })
-  .catch(console.error);
+    }).then(()=>alert("jagaimo"))
+  .catch(console.error)
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
