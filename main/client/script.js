@@ -88,8 +88,8 @@ function geoFindMe(){
         audio: true,
         video: false,
       })
-    .catch(console.error);
-    geoFindMe();
+    .catch(console.error)
+    .then(()=>geoFindMe());
   });
   peer.on('error', console.error);
 })();
