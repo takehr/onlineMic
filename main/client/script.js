@@ -83,7 +83,7 @@ function geoFindMe(){
   }));
 
   peer.on('open',() =>{
-    localStream = await navigator.mediaDevices
+    localStream = navigator.mediaDevices
       .getUserMedia({
         audio: true,
         video: false,
