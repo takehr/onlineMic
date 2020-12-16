@@ -31,7 +31,7 @@ $("#exampleModalCenter").modal({
 function geoFindMe(){
     alert("asdf");
     function success(position) {
- //       $("#exampleModalCenter").modal("hidden");
+        $("#exampleModalCenter").modal("hide");
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
