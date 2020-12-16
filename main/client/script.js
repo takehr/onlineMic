@@ -82,15 +82,15 @@ function geoFindMe(){
     debug: 3,
   }));
 
-    localStream = navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-        video: false,
-      })
-    .catch(console.error)
-    .then(()=>{
-	    alert("jaga");
-	    peer.on("open",()=> geoFindMe());
-    });
+  localStream = navigator.mediaDevices
+    .getUserMedia({
+      audio: true,
+      video: false,
+  })
+  .catch(console.error)
+  .then(()=>{
+          alert("jaga");
+          peer.on("open",()=> {alert("gaga");geoFindMe();});
+  });
   peer.on('error', console.error);
 })();
