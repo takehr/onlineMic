@@ -18,7 +18,7 @@ firebase.analytics();
 var database = firebase.database();
 var roomId=null;
 var localStream;
-let userPermission=false;
+let userPermission=true;
 const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
@@ -86,7 +86,7 @@ function geoFindMe(){
     })//.then(()=>userPermission=true)
   .catch(()=>{
       console.error;
-      alert("aaaasdf");
+      userPermission=false;
   });
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
