@@ -22,16 +22,16 @@ const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
 };
-$("#exampleModalCenter").modal({
-    keyboard:false,
-    backdrop:'static',
-    show:true
-});
+//$("#exampleModalCenter").modal({
+//    keyboard:false,
+//    backdrop:'static',
+//    show:true
+//});
 
 function geoFindMe(){
     alert("asdf");
     function success(position) {
-        $("#exampleModalCenter").modal("hidden");
+ //       $("#exampleModalCenter").modal("hidden");
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
