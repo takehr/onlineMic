@@ -83,7 +83,7 @@ function geoFindMe(){
     .getUserMedia({
       audio: true,
       video: false,
-    }).then(()=>userPermission=true)
+    })//.then(()=>userPermission=true)
   .catch(console.error)
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
