@@ -89,7 +89,5 @@ function geoFindMe(){
       })
     .catch(console.error)
     .then(()=>peer.on("open",()=> geoFindMe()));
-    
-  });
   peer.on('error', console.error);
 })();
