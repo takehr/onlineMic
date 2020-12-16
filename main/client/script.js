@@ -18,6 +18,7 @@ firebase.analytics();
 var database = firebase.database();
 var roomId=null;
 var localStream;
+let userPermission=false;
 const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
@@ -31,7 +32,7 @@ $("#exampleModalCenter").modal({
 function geoFindMe(){
     alert("asdf");
     function success(position) {
-        $("#exampleModalCenter").modal("hide");
+        if(userPermission)$("#exampleModalCenter").modal("hide");
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
         database.ref('/peers').once('value').then((snapshot) => {
@@ -82,7 +83,7 @@ function geoFindMe(){
     .getUserMedia({
       audio: true,
       video: false,
-    }).then(()=>alert("jagaimo"))
+    }).then(()=>userPermission=true)
   .catch(console.error)
   const peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
