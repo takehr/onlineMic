@@ -22,11 +22,11 @@ const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
 };
-//$("#exampleModalCenter").modal({
-//    keyboard:false,
-//    backdrop:'static',
-//    show:true
-//});
+$("#exampleModalCenter").modal({
+    keyboard:false,
+    backdrop:'static',
+    show:true
+});
 
 function geoFindMe(){
     alert("asdf");
