@@ -13,7 +13,7 @@ body {
     
 }
 
-div {
+#box-toggle {
      position: absolute;
    left: 21%;
     top: 57%;
