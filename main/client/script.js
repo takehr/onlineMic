@@ -23,6 +23,13 @@ const btnMute = document.getElementById('btn-mute');
 btnMute.onclick = () => {
     localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
 };
+
+$(function() {
+  $('#toggle-mute').change(function() {
+      localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
+  })
+})
+
 $("#exampleModalCenter").modal({
     keyboard:false,
     backdrop:'static',
@@ -46,6 +53,7 @@ function geoFindMe(){
             });
             }
         }).then(() => {
+                localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
                 if(!roomId){
                     roomId=window.peer.id;
                     database.ref("peers/"+window.peer.id).set({
