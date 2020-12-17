@@ -15,16 +15,16 @@ body {
 
 #box-toggle {
      position: absolute;
-   left: 21%;
-    top: 57%;
+   left: 27%;
+    top: 60%;
     
 }
 #my-toggle {
-    font-size: 400%;
+    font-size: 150%;
     margin: 90%,0%,0%;
 }
 #my-toggle-off {
-    font-size: 400%;
+    font-size: 150%;
     margin: 90%,0%,0%;
 }
 #icon-id {
