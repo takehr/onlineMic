@@ -37,7 +37,6 @@ $("#exampleModalCenter").modal({
 });
 
 function geoFindMe(){
-    alert("asdf");
     function success(position) {
         if(userPermission)$("#exampleModalCenter").modal("hide");
         const latitude  = position.coords.latitude;
@@ -73,14 +72,12 @@ function geoFindMe(){
                   stream: localStream,
                 });
             });
-        alert(window.peer.id);
-        alert(latitude+" "+longitude);
       }
     function error(error){
         alert(error.message);
     }
     if(!navigator.geolocation){
-        alert("can't use");
+        alert("It seems that geolocation is not available in your browser.");
     }else{
         navigator.geolocation.getCurrentPosition(success,error);
     }
