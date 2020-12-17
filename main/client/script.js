@@ -19,10 +19,10 @@ var database = firebase.database();
 var roomId=null;
 var localStream;
 let userPermission=true;
-const btnMute = document.getElementById('btn-mute');
-btnMute.onclick = () => {
-    localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
-};
+//const btnMute = document.getElementById('btn-mute');
+//btnMute.onclick = () => {
+//    localStream.getAudioTracks().forEach((track) => track.enabled=(!track.enabled) );
+//};
 
 $(function() {
   $('#toggle-mute').change(function() {
